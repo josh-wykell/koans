@@ -14,7 +14,21 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+  @a = a
+  @b = b
+  @c = c
+  raise TriangleError if [@a, @b, @c].min <= 0
+  raise TriangleError if @a + @b <= @c 
+  raise TriangleError if @c + @b <= @a
+  raise TriangleError if @c + @a <= @b
+  if   @a == @b && @b == @c
+    triangle = :equilateral
+  elsif 
+    (@a == @b && @a != @c)||(@a == @c && @a != @b)||(@b == @c && @b != @a)
+    triangle = :isosceles
+  else
+    triangle = :scalene
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
